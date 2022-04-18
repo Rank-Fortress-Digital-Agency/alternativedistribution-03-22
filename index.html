@@ -1,324 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #795a8a;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #795a8a;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #795a8a;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #795a8a;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #795a8a;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #795a8a;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      The benefits of using crystals in your everyday life | Alternative
+      Distribution
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://alternativedistribution.com.au/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/alternativedistributioncoburg?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>The benefits of using crystals in your everyday life</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://alternativedistribution.com.au/wp-content/uploads/2022/02/1-mahogany-obsidian-1-1024x1024.jpg"
+              alt="Crystals Retail & Wholesale Coburg North."
+            />
+          </div>
+          <br />
+          <h2>The benefits of using crystals in your everyday life</h2>
+          <hr />
+          <br />
+          <p>
+            Do you know what a crystal is? If not, then you’ve probably been
+            living under a rock. Crystals are beautiful and mysterious mineral
+            formations that have fascinated humanity for centuries. They can be
+            found everywhere in nature from stalactites to stalagmites on cave
+            ceilings to gemstones like diamonds, emeralds and rubies. But did
+            you know that crystals can also help improve your life?
+          </p>
+          <p>
+            You see, crystals vibrate at certain frequencies which correspond
+            with different elements of the human body. The vibrations emitted by
+            these minerals create an energy field around them that can stimulate
+            your chakras (or energy centers) and help balance your energies so
+            that both mind and body stay healthy! As well as being able to heal
+            your body, crystals can also be used to manifest your desires into
+            reality.
+          </p>
+          <a
+            class="button-link"
+            href="https://alternativedistribution.com.au/the-benefits-of-using-crystals-in-your-everyday-life/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <h2>There is a variety of different crystals and their uses vary</h2>
+          <p>
+            The use of crystals is becoming more and more popular. They can be
+            used for a variety of purposes. One way that they are used is as an
+            energy source to charge up your body, mind, or soul during
+            meditation or prayer. Another purpose they can serve is through the
+            Law of Attraction by focusing on what you want in life while holding
+            the crystal in your hand. You could also wear them as jewelry to
+            promote good health and wellness throughout all aspects of life such
+            as physical healing, emotional healing, spiritual growth, and
+            protection from negative energies. Crystals have been found to help
+            with sleep disorders, anxiety disorders, and depression among other
+            things which makes it a great alternative form of therapy without
+            any side effects. The list goes on but we’ll stop there for now.
+          </p>
+          <p>
+            The most popular
+            <a href="https://alternativedistribution.com.au/amethyst-crystal/"
+              >crystals used for healing are amethyst</a
+            >, rose quartz, aventurine, bloodstone, carnelian, citrine, quartz,
+            and smoky quartz. Amethyst is associated with the crown chakra and
+            is great for spiritual growth and protection. Rose quartz is
+            associated with the heart chakra and is great for emotional healing.
+            Aventurine is associated with the third eye chakra and is great for
+            enhancing creativity and intuition. Bloodstone is associated with
+            the root chakra and is great for physical healing. Carnelian is
+            associated with the sacral chakra and is great for sexual health and
+            creativity. Citrine is associated with the solar plexus chakra and
+            is great for self-confidence and digestive health. Quartz is
+            associated with all chakras and is great for general healing. Smoky
+            quartz is associated with the base chakra and is great for
+            grounding.
+          </p>
+          <a class="button-link" href="https://alternativedistribution.com.au/"
+            >Visit Us</a
+          >
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>The benefits of using crystals in your everyday life | Alternative Distribution</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://alternativedistribution.com.au/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/alternativedistributioncoburg?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>The benefits of using crystals in your everyday life</h1>
-      </section>
-
-      <section>
-        <div style="display:flex; justify-content: center;">
-            <img src="https://alternativedistribution.com.au/wp-content/uploads/2022/02/1-mahogany-obsidian-1-1024x1024.jpg" alt="Crystals Retail & Wholesale Coburg North.">
-        </div>
-        <br>
-        <h2>The benefits of using crystals in your everyday life</h2>
-        <hr>
-        <br>
-        <p>Do you know what a crystal is? If not, then you’ve probably been living under a rock. Crystals are beautiful and mysterious mineral formations that have fascinated humanity for centuries. They can be found everywhere in nature from stalactites to stalagmites on cave ceilings to gemstones like diamonds, emeralds and rubies. But did you know that crystals can also help improve your life?</p>
-        <p>You see, crystals vibrate at certain frequencies which correspond with different elements of the human body. The vibrations emitted by these minerals create an energy field around them that can stimulate your chakras (or energy centers) and help balance your energies so that both mind and body stay healthy! As well as being able to heal your body, crystals can also be used to manifest your desires into reality.</p>
-        <a class="button-link"
-            href="https://alternativedistribution.com.au/the-benefits-of-using-crystals-in-your-everyday-life/">Read Post</a>
-      </section>
-
-      <section>
-        <h2>There is a variety of different crystals and their uses vary</h2>
-        <p>The use of crystals is becoming more and more popular. They can be used for a variety of purposes. One way that they are used is as an energy source to charge up your body, mind, or soul during meditation or prayer. Another purpose they can serve is through the Law of Attraction by focusing on what you want in life while holding the crystal in your hand. You could also wear them as jewelry to promote good health and wellness throughout all aspects of life such as physical healing, emotional healing, spiritual growth, and protection from negative energies. Crystals have been found to help with sleep disorders, anxiety disorders, and depression among other things which makes it a great alternative form of therapy without any side effects. The list goes on but we’ll stop there for now.</p>
-        <p>The most popular <a href="https://alternativedistribution.com.au/amethyst-crystal/">crystals used for healing are amethyst</a>, rose quartz, aventurine, bloodstone, carnelian, citrine, quartz, and smoky quartz. Amethyst is associated with the crown chakra and is great for spiritual growth and protection. Rose quartz is associated with the heart chakra and is great for emotional healing. Aventurine is associated with the third eye chakra and is great for enhancing creativity and intuition. Bloodstone is associated with the root chakra and is great for physical healing. Carnelian is associated with the sacral chakra and is great for sexual health and creativity. Citrine is associated with the solar plexus chakra and is great for self-confidence and digestive health. Quartz is associated with all chakras and is great for general healing. Smoky quartz is associated with the base chakra and is great for grounding.</p>
-        <a class="button-link"
-            href="https://alternativedistribution.com.au/">Visit Us</a>
-      </section>
-
-      <section>
-
-        <div class="two-col">
+        <section>
+          <div class="two-col">
             <div>
-                <img style="height: 350px;" src="https://alternativedistribution.com.au/wp-content/uploads/2022/02/Amethyst-Aura--1024x1024.jpg" alt="Crystals Retail & Wholesale Coburg North">
+              <img
+                style="height: 350px"
+                src="https://alternativedistribution.com.au/wp-content/uploads/2022/02/Amethyst-Aura--1024x1024.jpg"
+                alt="Crystals Retail & Wholesale Coburg North"
+              />
             </div>
             <div>
-                <h2>Some crystals can be used for meditation, while others can help with sleep or anxiety problems</h2>
-                <p>Crystals are naturally occurring minerals that have a variety of uses and properties. Some crystals may be more effective than others depending on the person’s needs. Crystals are formed by natural forces from earth and water, so they often contain trace elements of other minerals. The size, shape, color, and structure of the crystal will also determine its energy patterns and what it is capable of doing for you.</p>
+              <h2>
+                Some crystals can be used for meditation, while others can help
+                with sleep or anxiety problems
+              </h2>
+              <p>
+                Crystals are naturally occurring minerals that have a variety of
+                uses and properties. Some crystals may be more effective than
+                others depending on the person’s needs. Crystals are formed by
+                natural forces from earth and water, so they often contain trace
+                elements of other minerals. The size, shape, color, and
+                structure of the crystal will also determine its energy patterns
+                and what it is capable of doing for you.
+              </p>
             </div>
-        </div>
-        <p>For example, quartz has been known to have powerful healing abilities when worn around the neck because it amplifies energy in all directions which helps to heal both physical ailments as well as mental ones like depression or anxiety disorders. It also balances energies in your body and helps to connect you with the divine. Amethyst is another great stone to use for healing and it is also known to help with addictions. If you are looking for a stone to help you sleep, try using a piece of moonstone which is said to be very calming. Many different crystals can be used for different purposes, so it is important to do your research and find out which ones work best for you.</p>
-      </section>
+          </div>
+          <p>
+            For example, quartz has been known to have powerful healing
+            abilities when worn around the neck because it amplifies energy in
+            all directions which helps to heal both physical ailments as well as
+            mental ones like depression or anxiety disorders. It also balances
+            energies in your body and helps to connect you with the divine.
+            Amethyst is another great stone to use for healing and it is also
+            known to help with addictions. If you are looking for a stone to
+            help you sleep, try using a piece of moonstone which is said to be
+            very calming. Many different crystals can be used for different
+            purposes, so it is important to do your research and find out which
+            ones work best for you.
+          </p>
+        </section>
 
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/rcVDMhQpJlA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/rcVDMhQpJlA"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <h2>It's important to know the proper way to use crystals to get the desired effect</h2>
-        <p>It’s important to know the proper way to use crystals to get the desired effect. When using a crystal, you must infuse your intention into the crystal and focus on what you want from it. This can be done by simply holding or carrying the crystal with you throughout your day, but also by placing them over or near sources of energy that align with their purpose (like water fountains). You must always remember that crystals are tools for manifesting change and should not be used as amulets to ward off negative energies. If they are being used as an amulet then they will not affect anything else because there would not be any energy left over for manifestation purposes.</p>
-        <br>
-        <h2>By using crystals, you can help support your energy and well-being</h2>
-        <p>The use of crystals dates back to prehistoric times and is a part of many cultures and traditions. Crystals are natural creations, which have been used for centuries by people around the world for healing, protection, energy, balance, and more.</p>
-        <p>There are plenty of reasons why you might want to incorporate crystals into your life: they can be beautiful and aesthetically pleasing; they’re easy to carry with you wherever you go; they enhance creativity, or their energies may resonate with that of your own. Whatever reason there is behind your interest in them, it’s important not just to buy any old crystal but rather find the right one that will suit your needs best. And while it’s always best if you purchase an already-made crystal necklace or bracelet, you can also buy crystals and place them in your home or office for personal use.</p>
-      </section>
+        <section>
+          <h2>
+            It's important to know the proper way to use crystals to get the
+            desired effect
+          </h2>
+          <p>
+            It’s important to know the proper way to use crystals to get the
+            desired effect. When using a crystal, you must infuse your intention
+            into the crystal and focus on what you want from it. This can be
+            done by simply holding or carrying the crystal with you throughout
+            your day, but also by placing them over or near sources of energy
+            that align with their purpose (like water fountains). You must
+            always remember that crystals are tools for manifesting change and
+            should not be used as amulets to ward off negative energies. If they
+            are being used as an amulet then they will not affect anything else
+            because there would not be any energy left over for manifestation
+            purposes.
+          </p>
+          <br />
+          <h2>
+            By using crystals, you can help support your energy and well-being
+          </h2>
+          <p>
+            The use of crystals dates back to prehistoric times and is a part of
+            many cultures and traditions. Crystals are natural creations, which
+            have been used for centuries by people around the world for healing,
+            protection, energy, balance, and more.
+          </p>
+          <p>
+            There are plenty of reasons why you might want to incorporate
+            crystals into your life: they can be beautiful and aesthetically
+            pleasing; they’re easy to carry with you wherever you go; they
+            enhance creativity, or their energies may resonate with that of your
+            own. Whatever reason there is behind your interest in them, it’s
+            important not just to buy any old crystal but rather find the right
+            one that will suit your needs best. And while it’s always best if
+            you purchase an already-made crystal necklace or bracelet, you can
+            also buy crystals and place them in your home or office for personal
+            use.
+          </p>
+        </section>
 
-      <section>
-        <h2>Crystals are a natural way to improve your overall health and happiness!</h2>
-        <p>Did you know that crystals have been used for healing and improving health for centuries? It’s true! Crystals are a natural way to improve your overall health and happiness. In this article, we’ll discuss the <a href="https://alternativedistribution.com.au/the-benefits-of-using-crystals/">benefits of using crystals</a>, and we’ll also provide some tips on how to get started. Keep reading to learn more!</p>
-        <p>Crystals have been used for healing and improving health for centuries. Many ancient cultures believed that crystals held mystical powers that could be used to heal the body and mind. If you to buy crystal go to 9/159 Newlands Road <a href="https://alternativedistribution.com.au/metaphysical-store-coburg-north/">Coburg North</a> Victoria Australia 3058.</p>
-        <p>There are many benefits to using crystals. For example, crystals can help to improve your energy levels, promote relaxation, and reduce stress. They can also help to improve your mood and increase your sense of well-being.</p>
-        <p>If you’re interested in using crystals for healing or personal growth contact Alternative Distribution today! We offer a wide variety of crystals, and we can help you select the right crystals for your needs. We also offer a variety of services, including crystal healing sessions and workshops. Contact us today to learn more!</p>
-        <a class="button-link"
-            href="https://google.com/maps/?cid=3914972187993000224">Find Us Here!</a>
-      </section>
+        <section>
+          <h2>
+            Crystals are a natural way to improve your overall health and
+            happiness!
+          </h2>
+          <p>
+            Did you know that crystals have been used for healing and improving
+            health for centuries? It’s true! Crystals are a natural way to
+            improve your overall health and happiness. In this article, we’ll
+            discuss the
+            <a
+              href="https://alternativedistribution.com.au/the-benefits-of-using-crystals/"
+              >benefits of using crystals</a
+            >, and we’ll also provide some tips on how to get started. Keep
+            reading to learn more!
+          </p>
+          <p>
+            Crystals have been used for healing and improving health for
+            centuries. Many ancient cultures believed that crystals held
+            mystical powers that could be used to heal the body and mind. If you
+            to buy crystal go to 9/159 Newlands Road
+            <a
+              href="https://alternativedistribution.com.au/metaphysical-store-coburg-north/"
+              >Coburg North</a
+            >
+            Victoria Australia 3058.
+          </p>
+          <p>
+            There are many benefits to using crystals. For example, crystals can
+            help to improve your energy levels, promote relaxation, and reduce
+            stress. They can also help to improve your mood and increase your
+            sense of well-being.
+          </p>
+          <p>
+            If you’re interested in using crystals for healing or personal
+            growth contact Alternative Distribution today! We offer a wide
+            variety of crystals, and we can help you select the right crystals
+            for your needs. We also offer a variety of services, including
+            crystal healing sessions and workshops. Contact us today to learn
+            more!
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=3914972187993000224"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <!-- content -->
+        <!-- content -->
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.8792371475615!2d144.9732681153161!3d-37.72251237976893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65958a477364d%3A0x3654c6766adb4920!2sAlternative%20Distribution%20P%2FL!5e0!3m2!1sen!2sph!4v1650259561214!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Crystals%20Retail%20&%20Wholesale%20Coburg%20North.</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.8792371475615!2d144.9732681153161!3d-37.72251237976893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65958a477364d%3A0x3654c6766adb4920!2sAlternative%20Distribution%20P%2FL!5e0!3m2!1sen!2sph!4v1650259561214!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Crystals%20Retail%20&%20Wholesale%20Coburg%20North.</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com/Attractions-g13949005-Activities-Coburg_North_Moreland_Greater_Melbourne_Victoria.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com/Attractions-g13949005-Activities-Coburg_North_Moreland_Greater_Melbourne_Victoria.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe
-        src="https://emergency.vic.gov.au/public/event%2Fwarning%2F5283.html"
-        style="border: 0px #ffffff none"
-        name="myiFrame"
-        scrolling="no"
-        frameborder="1"
-        marginheight="0px"
-        marginwidth="0px"
-        height="400px"
-        width="100%"
-        allowfullscreen
-      ></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://emergency.vic.gov.au/public/event%2Fwarning%2F5283.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="no"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://alternativedistribution.com.au/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://alternativedistribution.com.au/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/alternativedistribution-03-22/"
+            >https://rank-fortress-digital-agency.github.io/alternativedistribution-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://alternativedistribution-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://alternativedistribution-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://illustrious-nasturtium-a88866.netlify.app/"
+            >https://illustrious-nasturtium-a88866.netlify.app/</a
+          >
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/alternativedistributioncoburg/"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=3914972187993000224"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UClMVgG5nYE-O9IvnJCpjddQ"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://alternativedistribution.com.au/">Main</a></li>
+            <li>
+              <a href="https://g.page/alternativedistributioncoburg?share"
+                >Maps</a
+              >
+            </li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/alternativedistributioncoburg/">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=3914972187993000224">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UClMVgG5nYE-O9IvnJCpjddQ">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://alternativedistribution.com.au/">Main</a></li>
-          <li><a href="https://g.page/alternativedistributioncoburg?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
